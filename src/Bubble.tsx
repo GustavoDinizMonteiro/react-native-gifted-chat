@@ -84,6 +84,11 @@ const styles = {
       backgroundColor: Color.backgroundTransparent,
       color: Color.white,
     },
+    readedTick: {
+      fontSize: 10,
+      backgroundColor: Color.backgroundTransparent,
+      color: Color.defaultBlue,
+    },
     tickView: {
       flexDirection: 'row',
       marginRight: 10,
@@ -382,13 +387,14 @@ export default class Bubble<
       currentMessage &&
       (currentMessage.sent || currentMessage.received || currentMessage.pending)
     ) {
+      const { tick, readedTick } = styles.content
       return (
         <View style={styles.content.tickView}>
           {!!currentMessage.sent && (
-            <Text style={[styles.content.tick, this.props.tickStyle]}>✓</Text>
+            <Text style={[currentMessage.readed ? readedTick: tick, this.props.tickStyle]}>✓</Text>
           )}
           {!!currentMessage.received && (
-            <Text style={[styles.content.tick, this.props.tickStyle]}>✓</Text>
+            <Text style={[currentMessage.readed ? readedTick: tick, this.props.tickStyle]}>✓</Text>
           )}
           {!!currentMessage.pending && (
             <Text style={[styles.content.tick, this.props.tickStyle]}>🕓</Text>

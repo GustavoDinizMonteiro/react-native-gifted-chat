@@ -57,7 +57,8 @@ export interface IMessage {
   audio?: string
   system?: boolean
   sent?: boolean
-  received?: boolean
+  received?: boolean,
+  readed?: boolean,
   pending?: boolean
   quickReplies?: QuickReplies
 }
